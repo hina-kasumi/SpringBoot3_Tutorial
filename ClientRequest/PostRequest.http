@@ -1,0 +1,13 @@
+// POST request to example server
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "JameSmith",
+  "password": "12345678",
+  "firstName": "Jame",
+  "lastName": "Smith",
+  "birthDate": "2000-02-22"
+}
+
+###
