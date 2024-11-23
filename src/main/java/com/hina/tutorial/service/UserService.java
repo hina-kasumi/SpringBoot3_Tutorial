@@ -3,6 +3,8 @@ package com.hina.tutorial.service;
 import com.hina.tutorial.dto.request.UserCreationRequest;
 import com.hina.tutorial.dto.request.UserUpdateRequest;
 import com.hina.tutorial.entity.User;
+import com.hina.tutorial.exception.AppException;
+import com.hina.tutorial.exception.ErrorCode;
 import com.hina.tutorial.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,7 @@ public class UserService {
         User user = new User();
 
         if (userRepository.existsByUsername((request.getUsername())))
-            throw new RuntimeException("Username already exists");
+            throw new AppException(ErrorCode.USER_EXISTED);
 
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());

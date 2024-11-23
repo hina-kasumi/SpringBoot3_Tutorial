@@ -1,5 +1,6 @@
 package com.hina.tutorial.controller;
 
+import com.hina.tutorial.dto.request.ApiResponse;
 import com.hina.tutorial.dto.request.UserCreationRequest;
 import com.hina.tutorial.dto.request.UserUpdateRequest;
 import com.hina.tutorial.entity.User;
@@ -17,8 +18,10 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody @Valid UserCreationRequest request) {
-        return userService.createRequest(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request) {
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+        apiResponse.setResult(userService.createRequest(request));
+        return apiResponse;
     }
 
     @GetMapping
