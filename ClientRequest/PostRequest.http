@@ -3,11 +3,11 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "username": "J",
+  "username": "J97",
   "password": "12345678",
-  "firstName": "Jame",
-  "lastName": "Smith",
-  "birthDate": "2000-02-22"
+  "firstName": "Jack",
+  "lastName": "BoCon",
+  "birthDate": "1997-02-22"
 }
 
 ###

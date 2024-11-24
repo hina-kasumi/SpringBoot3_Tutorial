@@ -1,21 +1,26 @@
 package com.hina.tutorial.dto.request;
 
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
 
 @Getter
 @Setter
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserCreationRequest {
     @Size(min = 3, message = "USER_INVALID")
-    private String username;
+    String username;
 
     @Size(min = 8, message = "INVALID_PASSWORD")
-    private String password;
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
+    String password;
+    String firstName;
+    String lastName;
+    LocalDate birthDate;
 }

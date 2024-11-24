@@ -1,4 +1,4 @@
-package com.hina.tutorial.dto.request;
+package com.hina.tutorial.dto.response;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -12,7 +12,9 @@ import java.time.LocalDate;
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserUpdateRequest {
+public class UserResponse {
+    String id;
+    String username;
     String password;
     String firstName;
     String lastName;
