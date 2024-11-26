@@ -11,13 +11,13 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity // khai báo đây là đối tượng trong bảng
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @Id // khai báo field này là ID của đối tượng
+    @GeneratedValue(strategy = GenerationType.UUID) // tự động tạo ID không trùng lặp cho đối tượng
     String id;
     String username;
     String password;

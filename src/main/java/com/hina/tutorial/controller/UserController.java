@@ -23,6 +23,7 @@ public class UserController {
 
     @PostMapping
     ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request) {
+        // @RequestBody để chuyển dữ liệu json sang đối tượng java
         ApiResponse<User> apiResponse = new ApiResponse<>();
         apiResponse.setResult(userService.createRequest(request));
         return apiResponse;
@@ -35,16 +36,20 @@ public class UserController {
 
     @GetMapping("/{userId}")
     UserResponse getUser(@PathVariable("userId") String userId){
+        //sử dụng @PathVariable để lấy Path ID được truyền từ đường dẫn
         return userService.getUser(userId);
     }
 
     @PutMapping("/{userId}")
     UserResponse updateUser(@RequestBody UserUpdateRequest request, @PathVariable("userId") String userId){
+        // @RequestBody để chuyển dữ liệu json sang đối tượng java
+        //sử dụng @PathVariable để lấy Path ID được truyền từ đường dẫn
         return userService.updateUser(request, userId);
     }
 
     @DeleteMapping("/{userId}")
     String deleteUser(@PathVariable("userId") String userId){
+        //sử dụng @PathVariable để lấy Path ID được truyền từ đường dẫn
         userService.DeleteUser(userId);
         return "User deleted";
     }

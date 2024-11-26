@@ -25,6 +25,7 @@ public class UserService {
     UserMapper userMapper;
 
     public User createRequest(UserCreationRequest request) {
+        // kiểm tra xem username đã tồn tại hay chưa
         if (userRepository.existsByUsername((request.getUsername())))
             throw new AppException(ErrorCode.USER_EXISTED);
 
@@ -36,17 +37,20 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // trả về danh sách user
     public List<UserResponse> getUsers (){
         return userRepository.findAll().stream()
                 .map(userMapper::toUserResponse).toList();
     }
 
+    // trả về danh sách user theo ID
     public UserResponse getUser(String id) {
         return userMapper.toUserResponse(userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found")));
     }
 
     public UserResponse updateUser(UserUpdateRequest request, String userId) {
+        // kiểm tra nếu username không tồn tại
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         userMapper.updateUser(user, request);
@@ -55,6 +59,6 @@ public class UserService {
     }
 
     public void DeleteUser(String id) {
-        userRepository.deleteById(id);
+        userRepository.deleteById(id); // xóa dữ liệu user theo ID
     }
 }
