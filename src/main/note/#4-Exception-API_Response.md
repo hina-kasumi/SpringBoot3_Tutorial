@@ -54,7 +54,7 @@ Quá trình chuẩn hóa này có thể bao gồm những yếu tố sau:
     - đây là tổng quát chung của các mã lỗi:
 
       | mã lỗi | loại lỗi                                                                                |
-            |:-------|:----------------------------------------------------------------------------------------|
+      |:-------|:----------------------------------------------------------------------------------------|
       | 1xx    | có thể là mã lỗi hệ thống trong một số máy chủ hoặc thiết bị.                           |
       | 2xx    | Lỗi liên quan đến kết nối mạng hoặc cấu hình hệ thống không chính xác.                  |
       | 3xx    | Lỗi liên quan đến quyền truy cập hoặc xác thực                                          |
