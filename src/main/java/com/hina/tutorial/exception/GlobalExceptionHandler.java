@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
         try {
             errorCode = ErrorCode.valueOf(enumKey);
         } catch (IllegalArgumentException e1) {
-            errorCode = ErrorCode.INVALID_KEY;
+            errorCode = ErrorCode.INVALID_KEY; //để đề phòng trường hợp ta truyền key enum bị sai
         }
 
         ApiResponse<?> apiResponse = new ApiResponse<>();

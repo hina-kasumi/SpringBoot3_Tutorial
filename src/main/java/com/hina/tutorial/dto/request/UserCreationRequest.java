@@ -15,10 +15,10 @@ import java.time.LocalDate;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserCreationRequest {
-    @Size(min = 3, message = "USER_INVALID") //username phải ít nhất 3 kí tự
+    @Size(min = 3, message = "USER_INVALID") //username phải ít nhất 3 kí tự,message phải truyền vào là một ký tự
     String username;
 
-    @Size(min = 8, message = "INVALID_PASSWORD") //password ít nhất phải 8 kí tự
+    @Size(min = 8, message = "INVALID_PASSWORD") //password ít nhất phải 8 kí tự, message phải truyền vào là một ký tự
     String password;
     String firstName;
     String lastName;
