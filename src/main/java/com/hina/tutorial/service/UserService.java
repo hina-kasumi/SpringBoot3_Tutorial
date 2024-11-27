@@ -46,13 +46,13 @@ public class UserService {
     // trả về danh sách user theo ID
     public UserResponse getUser(String id) {
         return userMapper.toUserResponse(userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found")));
+                .orElseThrow(() -> new RuntimeException("User not found"))); // nếu không tìm thấy thì throw exception
     }
 
     public UserResponse updateUser(UserUpdateRequest request, String userId) {
         // kiểm tra nếu username không tồn tại
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found"));// nếu không tìm thấy thì throw exception
         userMapper.updateUser(user, request);
 
         return userMapper.toUserResponse(userRepository.save(user));

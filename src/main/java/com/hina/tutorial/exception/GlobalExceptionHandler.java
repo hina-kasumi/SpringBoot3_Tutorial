@@ -6,10 +6,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
+@ControllerAdvice // khai báo đây là class để xử lý ngoại lệ
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Exception.class) //xử lý các lỗi thuộc class Exception
     ResponseEntity<ApiResponse<?>> handleRuntimeException(Exception e) {
         ApiResponse<?> apiResponse = new ApiResponse<>();
         apiResponse.setCode(ErrorCode.UNCATEGORIZED_EXCEPTION.getCode());
@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(apiResponse);
     }
 
-    @ExceptionHandler(value = AppException.class)
+    @ExceptionHandler(value = AppException.class) //xử lý các lỗi thuộc class AppException
     ResponseEntity<ApiResponse<?>> handleRuntimeException(AppException e) {
         ErrorCode errorCode = e.getErrorCode();
 
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
 
     //valid
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)//xử lý các lỗi thuộc class MethodArgumentNotValidException
     ResponseEntity<ApiResponse<?>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         String enumKey = e.getFieldError().getDefaultMessage();
 
