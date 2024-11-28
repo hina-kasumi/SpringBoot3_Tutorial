@@ -7,7 +7,7 @@ import com.hina.tutorial.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring") //khai báo mapper này sử dụng trong spring để hỗ trợ DI
 public interface UserMapper {
     User toUser(UserCreationRequest request);
     UserResponse toUserResponse(User user);

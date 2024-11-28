@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)// gán giá trị các field trong class là private
 public class UserResponse {
     String id;
     String username;

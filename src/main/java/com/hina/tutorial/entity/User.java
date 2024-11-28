@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Entity // khai báo đây là đối tượng trong bảng
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)// gán giá trị các field trong class là private
 public class User {
     @Id // khai báo field này là ID của đối tượng
     @GeneratedValue(strategy = GenerationType.UUID) // tự động tạo ID không trùng lặp cho đối tượng

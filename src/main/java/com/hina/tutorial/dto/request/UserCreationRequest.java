@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE) // gán giá trị các field trong class là private
 public class UserCreationRequest {
     @Size(min = 3, message = "USER_INVALID") //username phải ít nhất 3 kí tự,message phải truyền vào là một ký tự
     String username;

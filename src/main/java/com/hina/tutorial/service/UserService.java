@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@RequiredArgsConstructor //tạo constructor với những final field hoặc có @NotNull
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true) // gán các field trong class mặc định là private final
 public class UserService {
     UserRepository userRepository;
     UserMapper userMapper;
@@ -29,7 +29,7 @@ public class UserService {
         if (userRepository.existsByUsername((request.getUsername())))
             throw new AppException(ErrorCode.USER_EXISTED);
 
-        User user = userMapper.toUser(request);
+        User user = userMapper.toUser(request);// sử dụng mapper để sao tạo user từ request
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -53,7 +53,7 @@ public class UserService {
         // kiểm tra nếu username không tồn tại
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));// nếu không tìm thấy thì throw exception
-        userMapper.updateUser(user, request);
+        userMapper.updateUser(user, request); // chuyển dữ liệu từ request vào user
 
         return userMapper.toUserResponse(userRepository.save(user));
     }

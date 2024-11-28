@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)// gán giá trị các field trong class là private
 public class AuthenticationRequest {
     String username;
     String password;
