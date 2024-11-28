@@ -61,6 +61,7 @@ public class AuthenticationService {
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        // kiểm tra password đã được mã hóa lưu trong hệ thống có đúng với password người dùng gửi không
         boolean authenticated = passwordEncoder.matches(request.getPassword(), user.getPassword());
         if (!authenticated)
             throw new AppException(ErrorCode.UNAUTHENTICATED);

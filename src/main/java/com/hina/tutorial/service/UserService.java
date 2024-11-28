@@ -31,8 +31,8 @@ public class UserService {
 
         User user = userMapper.toUser(request);// sử dụng mapper để sao tạo user từ request
 
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
-        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);// khai báo mã hóa BCrypt và truyền vào độ mạnh của mã hóa
+        user.setPassword(passwordEncoder.encode(request.getPassword()));//mã hóa password mà người dùng đã gửi xuống
 
         return userRepository.save(user);
     }

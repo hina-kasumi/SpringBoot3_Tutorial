@@ -64,3 +64,6 @@ Quá trình chuẩn hóa này có thể bao gồm những yếu tố sau:
 2. Tại sao `exception` lại gọi được `AppException`?
     - Vì là trong `service` nếu xảy ra ngoại lệ sẽ `throw` ra `AppException` (ví
       dụ: `throw new AppException(ErrorCode.USER_EXISTED);`)
+3. trả lại `Api Response` đối với `exception` như thế nào?
+    - khi ngoại lệ sảy ra sẽ gọi có một lỗi và `GlobalExceptionHandler` sẽ bắt lấy lỗi đó và trả về `client` với 
+   `ApiResponse` có chứa mã lỗi và `message` về lỗi đó.
